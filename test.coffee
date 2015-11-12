@@ -1,0 +1,3 @@
+
+reactTestRender = require './'
+reactTestRender.createRenderer()
