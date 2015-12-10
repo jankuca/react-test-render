@@ -11,11 +11,11 @@ class TestRenderer
 
   render: (props = {}) ->
     element = react.createElement(@_Component, props)
-    @_renderer.render(element, @_context)
+    @_shallowRenderer.render(element, @_context)
     return @getRendering()
 
   getRendering: ->
-    return @_renderer.getRenderOutput()
+    return @_shallowRenderer.getRenderOutput()
 
   getChildren: (parent = @getRendering()) ->
     return flattenChildren(parent.props.children)
