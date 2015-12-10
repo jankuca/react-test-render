@@ -17,6 +17,17 @@ class TestRenderer
   getRendering: ->
     return @_shallowRenderer.getRenderOutput()
 
+  getComponent: ->
+    # TEMP: React 0.14.2 does not implement #getMountedInstance()
+    if !@_shallowRenderer.getMountedInstance
+      return @_shallowRenderer._instance?._instance or null
+
+    return @_shallowRenderer.getMountedInstance()
+
+  getChildContext: ->
+    component = @getComponent()
+    return component.getChildContext()
+
   getChildren: (parent = @getRendering()) ->
     return flattenChildren(parent.props.children)
 
