@@ -1,3 +1,4 @@
+React = require 'react'
 shallowTestUtils = require 'react-shallow-testutils'
 
 { flattenChildren } = require './utils'
@@ -10,7 +11,7 @@ class TestRenderer
     @_context = context
 
   render: (props = {}) ->
-    element = react.createElement(@_Component, props)
+    element = React.createElement(@_Component, props)
     @_shallowRenderer.render(element, @_context)
     return @getRendering()
 
