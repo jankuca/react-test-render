@@ -9,8 +9,20 @@ class TestRenderer
     @_shallowRenderer = shallowRenderer
     @_Component = Component
     @_context = context
+    @_lastProps = {}
+
+  setContext: (contextUpdate = {}) ->
+    nextContext = {}
+    for contextKey, value of @_context
+      nextContext[contextKey] = value
+    for contextKey, value of contextUpdate
+      nextContext[contextKey] = value
+
+    @_context = nextContext
+    @render(@_lastProps)
 
   render: (props = {}) ->
+    @_lastProps = props
     element = React.createElement(@_Component, props)
     @_shallowRenderer.render(element, @_context)
     return @getRendering()
