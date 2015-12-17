@@ -1,7 +1,12 @@
 {
   "name": "react-test-render",
   "version": "1.0.0",
-  "main": "./index",
+  "main": "./lib/index",
+  "scripts": {
+    "build": "coffee -c -o lib src",
+    "prepublish": "npm run build",
+    "postinstall": "npm run build"
+  },
   "dependencies": {
     "lodash": "3.10.x",
     "immutable": "3.7.x",
@@ -10,5 +15,8 @@
   "peerDependencies": {
     "react": ">=0.14.3",
     "react-addons-test-utils": ">=0.14.3"
+  },
+  "devDependencies": {
+    "coffee-script": "1.9.1"
   }
 }
