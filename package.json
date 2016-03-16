@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "./lib/index",
   "scripts": {
-    "build": "coffee -c -o lib src",
-    "prepublish": "npm run build",
-    "postinstall": "npm run build"
+    "build": "rm -rf lib && coffee -c -o lib src",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "lodash": "3.10.x",
