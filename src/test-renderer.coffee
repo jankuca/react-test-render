@@ -46,21 +46,21 @@ class TestRenderer
 
   getChildOfType: (type, parent = @getRendering()) ->
     try
-      return shallowTestUtils.findWithType(@getRendering(), type)
+      return shallowTestUtils.findWithType(parent, type)
     catch error
       return null
 
   getChildrenOfType: (type, parent = @getRendering()) ->
-    return shallowTestUtils.findAllWithType(@getRendering(), type)
+    return shallowTestUtils.findAllWithType(parent, type)
 
   getChildOfClass: (className, parent = @getRendering()) ->
     try
-      return shallowTestUtils.findWithClass(@getRendering(), className)
+      return shallowTestUtils.findWithClass(parent, className)
     catch error
       return null
 
   getChildrenOfClass: (className, parent = @getRendering()) ->
-    return shallowTestUtils.findAllWithClass(@getRendering(), className)
+    return shallowTestUtils.findAllWithClass(parent, className)
 
   getTextContent: (parent = @getRendering()) ->
     children = @getChildren(parent)
