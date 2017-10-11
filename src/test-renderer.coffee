@@ -21,11 +21,22 @@ class TestRenderer
     @_context = nextContext
     @render(@_lastProps)
 
-  render: (props = {}) ->
+  render: (props = {}, hooks = {}) ->
     @_lastProps = props
+    @_hookComponent(hooks)
     element = React.createElement(@_Component, props)
     @_shallowRenderer.render(element, @_context)
     return @getRendering()
+
+  _hookComponent: (hooks) ->
+    Component = @_Component
+    if Component.prototype
+      if hooks.onBeforeDidMount
+        componentDidMount = Component.prototype.componentDidMount
+        Component.prototype.componentDidMount = ->
+          hooks.onBeforeDidMount.call(null)
+          componentDidMount?.call(this)
+          Component.prototype.componentDidMount = componentDidMount
 
   getRendering: ->
     return @_shallowRenderer.getRenderOutput()
