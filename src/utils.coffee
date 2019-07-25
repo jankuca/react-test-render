@@ -2,7 +2,7 @@ _ = require 'lodash'
 immutable = require 'immutable'
 
 
-flatMap = _.compose(_.flatten, _.map)
+flatMap = _.flowRight([ _.flatten, _.map ])
 
 
 flattenChildren = (children) ->
