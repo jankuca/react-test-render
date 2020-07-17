@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "immutable": "3.7.x",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "react-shallow-testutils": "2.0.x"
   },
   "peerDependencies": {
