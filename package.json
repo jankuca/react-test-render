@@ -6,6 +6,10 @@
     "build": "rm -rf lib && coffee -c -o lib src",
     "prepublish": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jankuca/react-test-render.git"
+  },
   "dependencies": {
     "immutable": "3.7.x",
     "lodash": "^4.17.15",
